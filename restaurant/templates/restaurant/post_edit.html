@@ -1,0 +1,30 @@
+{% extends 'restaurant/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- Add menu section -->
+<section class="container">
+    <form method="POST" class="form">{% csrf_token %}
+        {% for field in form %}
+
+        {{ field }}
+        {{ field.errors }}
+        {% if field.help_text %}
+        <p class="input__notification">{{ field.help_text|safe }}</p>
+        {% endif %}
+
+        {% endfor %}
+        <input type="submit" class="form__input button" value="Save">
+
+        <!-- Message status -->
+        {% if messages %}
+            {% for message in messages %}
+            <p{% if message.tags %} class="alert alert--big form__notification {{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </form>
+</section>
+<!-- End Add menu section -->
+
+{% endblock %}

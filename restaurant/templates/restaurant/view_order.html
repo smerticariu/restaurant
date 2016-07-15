@@ -1,0 +1,13 @@
+{% extends 'restaurant/index.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<title> {{order.name}}</title>
+<ul>
+        <li>{{order.name}}</li>
+        <li>{{order.email}}</li>
+        <li>{{order.adress}}</li>
+        <li>{{order.phone}}</li>
+</ul>
+{% endblock %}

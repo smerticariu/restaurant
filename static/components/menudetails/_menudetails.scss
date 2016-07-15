@@ -1,0 +1,129 @@
+.menu {
+
+  &__header {
+    color: #32C46F;
+    font-size: 28px;
+    font-family: "Lato", sans-serif;
+    margin: 30px auto;
+    display: table;
+  }
+
+  &__list {
+    margin: 10px 0;
+    display: table;
+    margin: 0 auto;
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    text-align: center;
+    text-transform: capitalize;
+    margin-right: 10px;
+  }
+
+  &__container {
+   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+   margin: 0 auto;
+   width: 90%;
+   margin-top: 20px;
+
+   &--big {
+    height: 30em;
+    min-width: 500px;
+    overflow-y: scroll;
+   }
+
+   &--small {
+    min-width: 200px;
+    display: table;
+   }
+ }
+}
+
+
+.table {
+  display: table;
+  margin: 0 auto;
+  th {
+    border: none;
+    text-align: center;
+    color: $text-color;
+    font-size: $font-size;
+    background-color: #56CF90;
+    width: 400px;
+  }
+
+  tr {
+    width: 400px;
+    text-align: center;
+    color: #000;
+    font-size: $font-size;
+    margin-bottom: 20px;
+  }
+
+  td {
+    padding: 50px 0 35px 0;
+  }
+}
+
+.alert {
+  font-size: 20px;
+  padding: 15px;
+  margin-bottom: 20px;
+
+  border-radius: 4px;
+  margin: 15px auto;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+
+  &--big {
+    width: 100%;
+    min-width: 200px;
+  }
+
+  &--small {
+    width: 20%;
+    min-width: 300px;
+  }
+}
+
+// Clase fara BEM din cauza ca nu se pot adauga clase in mod dinamic
+// Am adaugat clasele error si success din cauza ca
+// django/python nu poate adauga clasa alert--danger si alert--success
+.error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.success {
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+  color: #3c763d;
+}
+
+.errorlist {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    color: #ff0000;
+    text-align: center;
+  }
+}
+
+//  Rating
+// .stars {
+//     span {
+//       display: block;
+//       background: url("/static/img/stars.png") 0 -16px repeat-x;
+//       width: 80px;
+//       height: 16px;
+//       //background-position: 0 0;
+//     }
+// }
+
+// span.stars span {
+//       background-position: 0 0;
+//     }

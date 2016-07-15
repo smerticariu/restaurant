@@ -1,0 +1,20 @@
+{% extends 'restaurant/index.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<title> Adauga Comanda </title>
+    <h1>Adauga Comanda</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field.label_tag }} {{ field }}
+                {{ field.errors }}
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

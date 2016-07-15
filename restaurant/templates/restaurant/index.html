@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>Restaurant</title>
+    <link rel="stylesheet" href="{% static 'dist/assets/css/app.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+      <!-- Left side of navbar -->
+      <div class="navbar__item navbar__item--left">
+        <img class="logo" src="{% static 'img/logo.png' %}">
+        <!-- Navbar menu -->
+        <div class="dropdown">
+          <span>Welcome &#x25bc;</span>
+          <div class="dropdown__content">
+            <ul class="dropdown__list">
+              <li>
+                <a href="{% url 'restaurant:index'%}">Home/Menu table</a>
+            </li>
+            <li>
+                <a href="{% url 'restaurant:post_new'%}">Add menu</a>
+            </li>
+            <li>
+                <a href="{% url 'restaurant:post_order'%}">Add order</a>
+            </li>
+            <li>
+                <a href="{% url 'restaurant:index_t'%}">Today's menu</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- End Navbar menu -->
+</div>
+<!-- Right side of navbar -->
+<div class="navbar__item--right">
+    <a class="navbar__link" href="#">User</a>
+    <img class="avatar" src="{% static 'img/user.jpg' %}">
+</div>
+</nav>
+<!-- End Navbar section -->
+
+
+{% block content %}
+
+{% endblock %}
+
+<!-- End message status -->
+<footer></footer>
+<script src="{% static 'dist/assets/js/app.js' %}"></script>
+</body>
+
+</html>

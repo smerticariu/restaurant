@@ -1,0 +1,34 @@
+{% extends 'restaurant/index.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- Lunch history section -->
+<section class="lunch">
+  <table class="lunch__table">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Titlu</th>
+        <th>Actiuni</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for menu in all_menus%}
+
+      <tr>
+        <td>
+          <p>{{menu.date_day}}</p>
+        </td>
+        <td>
+          <p>{{menu.title}}</p>
+        </td>
+        <td>
+          <a class="button navbar__link" href="{% url 'restaurant:detail' menu.pk %}">Vizualizare</a>
+        </td>
+      </tr>
+      {%endfor%}
+
+    </tbody>
+  </table>
+</section>
+<!-- End Lunch history section -->
+{% endblock %}

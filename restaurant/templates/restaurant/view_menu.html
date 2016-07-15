@@ -1,0 +1,100 @@
+{% extends 'restaurant/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Menu details section -->
+<section>
+  <!-- Menu list -->
+  <div class="menu">
+   <h1 class="menu__header">Menu details</h1>
+
+   <div class="menu__container menu__container--small">
+     <ul class="menu__list">
+     <li>
+       {{menu.dish1}}
+     </li>
+     <li>
+       {{menu.dish2}}
+     </li>
+     <li>
+       {{menu.desert}}
+     </li>
+     <li>
+       {{menu.date_day}}
+     </li>
+     <li class="ratingjs">
+       Average rating: {{average}}
+     </li>
+     <!-- <li class="ratingjs2 stars">
+        <span></span>
+     </li> -->
+   </ul>
+
+    <!-- Message status -->
+  {% if messages %}
+    {% for message in messages %}
+        <p{% if message.tags %} class="alert-success alert alert--small form__notification {{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+
+   </div>
+ </div>
+
+<!-- List clients -->
+
+
+
+<div class="menu__container menu__container--big">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Change status</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for obj in order_list%}
+
+      <tr>
+        <td>
+          <p>{{obj.name}}</p>
+        </td>
+        <td>
+          <p>{{obj.adress}}</p>
+        </td>
+        <td>
+          <p>{{obj.email}}</p>
+        </td>
+        <td>
+          <p>{{obj.phone}}</p>
+        </td>
+        <td>
+          <p>{{obj.get_status_display}}</p>
+        </td>
+        {% if obj.status == 0 %}
+        <td>
+          <a class="button navbar__link" href="{% url 'restaurant:change' obj.pk  %}">Shipping</a>
+        </td>
+        {%else%}
+        <td></td>
+        {%endif%}
+        {% if obj.raiting %}
+        <td>
+          <p>{{obj.raiting}}</p>
+        </td>
+        {%endif%}
+      </tr>
+      {%endfor%}
+
+    </tbody>
+  </table>
+
+</div>
+</section>
+{% endblock %}
