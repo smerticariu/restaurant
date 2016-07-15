@@ -3,18 +3,19 @@
 
 
 {% block content %}
-<title> Adauga Comanda </title>
+<div class="menu__container menu__container--small">
     <h1>Adauga Comanda</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {% for field in form %}
-            <div class="fieldWrapper">
+
                 {{ field.label_tag }} {{ field }}
                 {{ field.errors }}
                 {% if field.help_text %}
                 <p class="help">{{ field.help_text|safe }}</p>
                 {% endif %}
-            </div>
+
         {% endfor %}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="button button--large">Save</button>
     </form>
+</div>
 {% endblock %}

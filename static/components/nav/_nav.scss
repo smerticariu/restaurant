@@ -91,3 +91,9 @@ $text-color: #fff;
 footer {
   height: 50px;
 }
+
+@media screen and (max-width: 870px) {
+  .navbar__item--right {
+    display: none;
+  }
+}

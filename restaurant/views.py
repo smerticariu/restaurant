@@ -59,7 +59,7 @@ def detail(request, menu_id):
 
 def index_o(request):
     all_orders_list=Order.objects.all()
-    paginator = Paginator(all_orders_list, 5) # Show 25 contacts per page
+    paginator = Paginator(all_orders_list, 10) # Show 25 contacts per page
     page = request.GET.get('page')
     try:
         all_orders = paginator.page(page)
@@ -86,7 +86,18 @@ def detail_o(request, order_id):
     return HttpResponse(template.render(context, request))
 
 def index_t(request):
-    all_menus=Menu.objects.filter(date_day=datetime.today().date())
+    all_menus_list=Menu.objects.filter(date_day=datetime.today().date())
+    paginator = Paginator(all_menus_list, 10) # Show 25 contacts per page
+    page = request.GET.get('page')
+    try:
+        all_menus = paginator.page(page)
+    except PageNotAnInteger:
+    # If page is not an integer, deliver first page.
+        all_menus = paginator.page(1)
+    except EmptyPage:
+    # If page is out of range (e.g. 9999), deliver last page of results.
+        all_menus = paginator.page(paginator.num_pages)
+
     template=loader.get_template('restaurant/todays_menu.html')
     context={
         "all_menus":all_menus,

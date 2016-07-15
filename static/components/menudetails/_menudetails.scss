@@ -14,7 +14,14 @@
     margin: 0 auto;
     list-style-type: none;
     padding: 0;
+
+    a {
+      font-size: 20px;
+      text-transform: capitalize;
+      color: #000;
+    }
   }
+
   li {
     text-align: center;
     text-transform: capitalize;
@@ -36,6 +43,7 @@
    &--small {
     min-width: 200px;
     display: table;
+    padding: 20px;
    }
  }
 }
@@ -113,17 +121,17 @@
   }
 }
 
-//  Rating
-// .stars {
-//     span {
-//       display: block;
-//       background: url("/static/img/stars.png") 0 -16px repeat-x;
-//       width: 80px;
-//       height: 16px;
-//       //background-position: 0 0;
-//     }
-// }
+// Rating
+.stars {
+  span {
+    display: block;
+    background: url("/static/img/stars.png") 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+      //background-position: 0 0;
+    }
+  }
 
-// span.stars span {
-//       background-position: 0 0;
-//     }
+  span.stars span {
+    background-position: 0 0;
+  }
