@@ -23,7 +23,7 @@
        {{menu.date_day}}
      </li>
      <li class="ratingjs">
-       Average rating: {{average}}
+       {{average}}
      </li>
      <li class="ratingjs2 stars">
         <span></span>
@@ -84,7 +84,13 @@
         {%endif%}
         {% if obj.raiting %}
         <td>
-          <p>{{obj.raiting}}</p>
+          <!-- <p></p> -->
+          <p class="ratingjs__client">
+       {{obj.raiting}}
+     </p>
+     <p class="ratingjs2__client stars">
+        <span></span>
+     </p>
         </td>
         {%endif%}
       </tr>

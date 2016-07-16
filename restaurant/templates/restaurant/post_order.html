@@ -3,9 +3,10 @@
 
 
 {% block content %}
-<div class="menu__container menu__container--small">
-    <h1>Adauga Comanda</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+<section class="container">
+
+    <form method="POST" class="form">{% csrf_token %}
+    <h1>Add your order</h1>
         {% for field in form %}
 
                 {{ field.label_tag }} {{ field }}
@@ -17,5 +18,5 @@
         {% endfor %}
         <button type="submit" class="button button--large">Save</button>
     </form>
-</div>
+</section>
 {% endblock %}

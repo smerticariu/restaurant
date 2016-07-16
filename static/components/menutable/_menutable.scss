@@ -29,6 +29,7 @@
 .lunch__table {
   display: table;
   margin: 0 auto;
+  background-color: #fff;
   th {
     border: none;
     text-align: center;
@@ -59,9 +60,12 @@
   outline: none;
   border: none;
   box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.55);
+  display: inline-block;
+  margin: 0 auto;
 
   &--large {
     padding: 15px 50px 15px 50px;
+    margin-top: 10px;
   }
 
   &--small {
