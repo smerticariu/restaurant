@@ -8,7 +8,7 @@
     <nav class="navbar">
       <!-- Left side of navbar -->
       <div class="navbar__item navbar__item--left">
-        <img class="logo" src="{% static 'img/logo.png' %}">
+        <a href="{% url 'restaurant:index'%}"><img class="logo" src="{% static 'img/logo.png' %}"></a>
         <!-- Navbar menu -->
         <div class="dropdown">
           <span>Welcome &#x25bc;</span>
@@ -36,7 +36,7 @@
 </div>
 <!-- Right side of navbar -->
 <div class="navbar__item--right">
-    <a class="navbar__link" href="#">User</a>
+    <a class="link" href="#">User</a>
     <img class="avatar" src="{% static 'img/user.jpg' %}">
 </div>
 </nav>
@@ -47,8 +47,7 @@
 
 {% endblock %}
 
-<!-- End message status -->
-<span></span>
+
 <footer></footer>
 <script src="{% static 'dist/assets/js/app.js' %}"></script>
 </body>

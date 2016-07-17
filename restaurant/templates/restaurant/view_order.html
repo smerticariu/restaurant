@@ -3,11 +3,14 @@
 
 
 {% block content %}
-<title> {{order.name}}</title>
-<ul>
-        <li>{{order.name}}</li>
-        <li>{{order.email}}</li>
-        <li>{{order.adress}}</li>
-        <li>{{order.phone}}</li>
+   <div class="menu__container menu__container--small">
+   <h1>Client details</h1>
+
+<ul class="menu__list">
+        <li>Name: {{order.name}}</li>
+        <li>E-mail: {{order.email}}</li>
+        <li>Address: {{order.adress}}</li>
+        <li>Phone: {{order.phone}}</li>
 </ul>
+</div>
 {% endblock %}

@@ -1,21 +1,20 @@
 {% extends 'restaurant/index.html' %}
 {% load staticfiles %}
 
-
 {% block content %}
-<div class="menu__container menu__container--small">
-    <h1>Adauga Comanda</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {% for field in form %}
+<section class="container">
 
-                {{ field.label_tag }} {{ field }}
-                {{ field.errors }}
-                {% if field.help_text %}
-                <p class="help">{{ field.help_text|safe }}</p>
-                {% endif %}
+    <form method="POST" class="form">{% csrf_token %}
+    <h1>Add your order</h1>
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }}
+            {{ field.errors }}
+            {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
 
         {% endfor %}
         <button type="submit" class="button button--large">Save</button>
     </form>
-</div>
+</section>
 {% endblock %}

@@ -23,7 +23,7 @@
        {{menu.date_day}}
      </li>
      <li class="ratingjs">
-       Average rating: {{average}}
+       {{average}}
      </li>
      <li class="ratingjs2 stars">
         <span></span>
@@ -40,7 +40,7 @@
    </div>
  </div>
 
-<!-- List clients -->
+<!-- Clients list -->
 
 <div class="menu__container menu__container--big">
   <table class="table">
@@ -77,14 +77,14 @@
         </td>
         {% if obj.status == 0 %}
         <td>
-          <a class="button button--large navbar__link" href="{% url 'restaurant:change' obj.pk  %}">Shipping</a>
+          <a class="button button--large link" href="{% url 'restaurant:change' obj.pk  %}">Shipping</a>
         </td>
         {%else%}
         <td></td>
         {%endif%}
         {% if obj.raiting %}
         <td>
-          <p>{{obj.raiting}}</p>
+       {{obj.raiting}}
         </td>
         {%endif%}
       </tr>

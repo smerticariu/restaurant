@@ -58,6 +58,7 @@ class OrderForm(forms.ModelForm):
         self.fields['adress'].help_text = 'Introduceti adresa'
         self.fields['raiting'].help_text = 'Introduceti raiting-ul'
         self.fields['date_order'].initial = datetime.datetime.now
+        self.fields['title'].queryset = Menu.objects.filter(date_day=datetime.datetime.today().date())
 
     class Meta:
         model = Order

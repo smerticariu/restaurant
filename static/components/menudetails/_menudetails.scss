@@ -1,7 +1,7 @@
 .menu {
 
   &__header {
-    color: #32C46F;
+    color: #fff;
     font-size: 28px;
     font-family: "Lato", sans-serif;
     margin: 30px auto;
@@ -14,6 +14,7 @@
     margin: 0 auto;
     list-style-type: none;
     padding: 0;
+    text-align: center;
 
     a {
       font-size: 20px;
@@ -31,19 +32,25 @@
   &__container {
    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
    margin: 0 auto;
-   width: 90%;
    margin-top: 20px;
+   background: #fff;
 
    &--big {
     height: 30em;
     min-width: 500px;
     overflow-y: scroll;
+    width: 90%;
    }
 
    &--small {
-    min-width: 200px;
+    min-width: 300px;
     display: table;
     padding: 20px;
+   }
+
+   &--xs {
+    min-width: 300px;
+    width: 50%;
    }
  }
 }
@@ -78,7 +85,6 @@
   font-size: 20px;
   padding: 15px;
   margin-bottom: 20px;
-
   border-radius: 4px;
   margin: 15px auto;
   text-align: center;
@@ -96,9 +102,8 @@
   }
 }
 
-// Clase fara BEM din cauza ca nu se pot adauga clase in mod dinamic
-// Am adaugat clasele error si success din cauza ca
-// django/python nu poate adauga clasa alert--danger si alert--success
+// Clase fara BEM deoarece sunt clase generate  de
+// widgeturi din back-end
 .error {
   color: #a94442;
   background-color: #f2dede;
@@ -135,3 +140,7 @@
   span.stars span {
     background-position: 0 0;
   }
+
+.ratingjs {
+  display: none;
+}
