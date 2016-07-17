@@ -12,13 +12,13 @@
     <div class="pagination">
       <span class="step-links">
         {% if all_orders.has_previous %}
-        <a class="button button--small navbar__link" href="?page={{ all_orders.previous_page_number }}">previous</a>
+        <a class="button button--small link" href="?page={{ all_orders.previous_page_number }}">previous</a>
         {% endif %}
         <span class="current">
           Page {{ all_orders.number }} of {{ all_orders.paginator.num_pages }}.
         </span>
         {% if all_orders.has_next %}
-        <a class="button button--small navbar__link" href="?page={{ all_orders.next_page_number }}">next</a>
+        <a class="button button--small link" href="?page={{ all_orders.next_page_number }}">next</a>
         {% endif %}
       </span>
     </div>

@@ -1,24 +1,27 @@
 {% extends 'restaurant/index.html' %}
 {% load staticfiles %}
 {% block content %}
+<!-- Today's menu section -->
 <div class="menu__container menu__container--small">
+
   <h1>Today's menu</h1>
+
   <ul class="menu__list">
     {% for menu in all_menus%}
     <li><a href="{% url 'restaurant:detail' menu.pk %}"> {{menu.title}}</a></li>
     {%endfor%}
-
   </ul>
+
   <div class="pagination">
     <span class="step-links">
       {% if all_menus.has_previous %}
-      <a class="button button--small navbar__link" href="?page={{ all_menus.previous_page_number }}">previous</a>
+      <a class="button button--small link" href="?page={{ all_menus.previous_page_number }}">previous</a>
       {% endif %}
       <span class="current">
         Page {{ all_menus.number }} of {{ all_menus.paginator.num_pages }}.
       </span>
       {% if all_menus.has_next %}
-      <a class="button button--small navbar__link" href="?page={{ all_menus.next_page_number }}">next</a>
+      <a class="button button--small link" href="?page={{ all_menus.next_page_number }}">next</a>
       {% endif %}
     </span>
   </div>

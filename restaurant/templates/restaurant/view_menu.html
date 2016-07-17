@@ -40,7 +40,7 @@
    </div>
  </div>
 
-<!-- List clients -->
+<!-- Clients list -->
 
 <div class="menu__container menu__container--big">
   <table class="table">
@@ -77,20 +77,14 @@
         </td>
         {% if obj.status == 0 %}
         <td>
-          <a class="button button--large navbar__link" href="{% url 'restaurant:change' obj.pk  %}">Shipping</a>
+          <a class="button button--large link" href="{% url 'restaurant:change' obj.pk  %}">Shipping</a>
         </td>
         {%else%}
         <td></td>
         {%endif%}
         {% if obj.raiting %}
         <td>
-          <!-- <p></p> -->
-          <p class="ratingjs__client">
        {{obj.raiting}}
-     </p>
-     <p class="ratingjs2__client stars">
-        <span></span>
-     </p>
         </td>
         {%endif%}
       </tr>
