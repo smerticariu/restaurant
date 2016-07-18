@@ -1,11 +1,10 @@
-#!/home/sandru/myapp/env/bin/python
-
-# -*- coding: utf-8 -*-
-import re
+#!/home/sergiu/Projects/myapp/env/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'ipdb==0.10.1','console_scripts','ipdb'
+__requires__ = 'ipdb==0.10.1'
 import sys
-
-from ipdb.__main__ import main
+from pkg_resources import load_entry_point
 
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
+    sys.exit(
+        load_entry_point('ipdb==0.10.1', 'console_scripts', 'ipdb')()
+    )

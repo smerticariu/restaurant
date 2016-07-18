@@ -14,6 +14,7 @@ from datetime import datetime, timedelta
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import math
 
 
 
@@ -53,13 +54,13 @@ def detail(request, menu_id):
     context={
         "menu":menu,
         "order_list":order_list,
-        "average":average
+        "average":math.floor(average * 10)/10
     }
     return HttpResponse(template.render(context, request))
 
 def index_o(request):
     all_orders_list=Order.objects.all()
-    paginator = Paginator(all_orders_list, 10) # Show 25 contacts per page
+    paginator = Paginator(all_orders_list, 15) # Show 15 contacts per page
     page = request.GET.get('page')
     try:
         all_orders = paginator.page(page)
@@ -86,18 +87,7 @@ def detail_o(request, order_id):
     return HttpResponse(template.render(context, request))
 
 def index_t(request):
-    all_menus_list=Menu.objects.filter(date_day=datetime.today().date())
-    paginator = Paginator(all_menus_list, 10) # Show 25 contacts per page
-    page = request.GET.get('page')
-    try:
-        all_menus = paginator.page(page)
-    except PageNotAnInteger:
-    # If page is not an integer, deliver first page.
-        all_menus = paginator.page(1)
-    except EmptyPage:
-    # If page is out of range (e.g. 9999), deliver last page of results.
-        all_menus = paginator.page(paginator.num_pages)
-
+    all_menus=Menu.objects.filter(date_day=datetime.today().date())
     template=loader.get_template('restaurant/todays_menu.html')
     context={
         "all_menus":all_menus,
@@ -127,7 +117,7 @@ def change(request, order_id):
         u.save()
         messages.success(request, "The order was sent!")
     else:
-        messages.error(request, "Nu se poate ")
+        messages.error(request, "The order was NOT sent! ")
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -205,7 +195,8 @@ def InfoViewSet(request):
                     'dish1':menu.dish1,
                     'dish2':menu.dish2,
                     'desert':menu.desert,
-                    'status': serializer.data['status']
+                    'status': serializer.data['status'],
+                    'sir':sir
                     }
                 else:
                     return Response("Meniul dat nu corespunde", status=status.HTTP_400_BAD_REQUEST)
@@ -220,12 +211,15 @@ def InfoViewSet(request):
 @api_view(['GET', 'POST'])
 def RaitingViewSet(request):
     if request.method == 'POST':
-        # import ipdb; ipdb.set_trace();
-        data=request.data
-        sir=data['sir']
-        ids = sir.split("-")
-        menu_id=ids[0]
-        order_id=ids[1]
+        import ipdb; ipdb.set_trace();
+        try:
+            data=request.data
+            sir=data['sir']
+            ids = sir.split("-")
+            menu_id=ids[0]
+            order_id=ids[1]
+        except Exception as err:
+             return Response({"details":str(err)}, status=status.HTTP_400_BAD_REQUEST)
         try:
             if len(data['sir'])>=3 and ('-' in data['sir']) and float(data['rating'])>0 and float(data['rating'])<=5.0 and len(ids)==2 and menu_id.isnumeric() and order_id.isnumeric():
                 order= Order.objects.get(id=    order_id)

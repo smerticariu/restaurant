@@ -13,7 +13,7 @@ class MenuForm(forms.ModelForm):
 
         # self.fields['date_day'].required=True
         self.fields['title'].widget = forms.TextInput(attrs={'placeholder':'titlul meniului'})
-        self.fields['date_day'].widget = forms.TextInput(attrs={'placeholder':'Introduceti data'})
+        self.fields['date_day'].widget = forms.TextInput(attrs={'placeholder':'Introduceti data', 'type':'date'})
         self.fields['date_day'].initial = datetime.datetime.now().date()
         self.fields['dish1'].widget = forms.TextInput(attrs={'placeholder':'Introduceti felul 1'})
         self.fields['dish2'].widget = forms.TextInput(attrs={'placeholder':'Introduceti felu 2'})
