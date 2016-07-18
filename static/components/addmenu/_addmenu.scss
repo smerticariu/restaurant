@@ -42,3 +42,12 @@
     }
   }
 }
+
+.table {
+
+  tr {
+    &:nth-child(2n+1) {
+      background: #E7E7E7;
+    }
+  }
+}

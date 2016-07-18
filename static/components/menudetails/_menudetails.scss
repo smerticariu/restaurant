@@ -21,13 +21,19 @@
       text-transform: capitalize;
       color: #000;
     }
+
+    li {
+      text-align: center;
+      text-transform: capitalize;
+      margin-right: 10px;
+
+      &:nth-child(2n+1) {
+        background: #E7E7E7
+      }
+    }
   }
 
-  li {
-    text-align: center;
-    text-transform: capitalize;
-    margin-right: 10px;
-  }
+
 
   &__container {
    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
@@ -40,19 +46,19 @@
     min-width: 500px;
     overflow-y: scroll;
     width: 90%;
-   }
+  }
 
-   &--small {
+  &--small {
     min-width: 300px;
     display: table;
     padding: 20px;
-   }
+  }
 
-   &--xs {
+  &--xs {
     min-width: 300px;
     width: 50%;
-   }
- }
+  }
+}
 }
 
 
@@ -133,13 +139,12 @@
     background: url("/static/img/stars.png") 0 -16px repeat-x;
     width: 80px;
     height: 16px;
-      //background-position: 0 0;
-    }
   }
+}
 
-  span.stars span {
-    background-position: 0 0;
-  }
+span.stars span {
+  background-position: 0 0;
+}
 
 .ratingjs {
   display: none;
