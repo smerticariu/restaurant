@@ -45,6 +45,10 @@
     color: #000;
     font-size: $font-size;
     margin-bottom: 20px;
+
+    &:nth-child(2n+1) {
+      background: #E7E7E7;
+    }
   }
 
   td {
