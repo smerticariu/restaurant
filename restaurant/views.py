@@ -211,7 +211,7 @@ def InfoViewSet(request):
 @api_view(['GET', 'POST'])
 def RaitingViewSet(request):
     if request.method == 'POST':
-        import ipdb; ipdb.set_trace();
+        # import ipdb; ipdb.set_trace();
         try:
             data=request.data
             sir=data['sir']
