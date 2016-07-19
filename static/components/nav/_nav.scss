@@ -105,4 +105,19 @@ footer {
   .navbar__item--right {
     display: none;
   }
+
+  .menu__container--big {
+    width: 95%;
+  }
+
+  .table td {
+    font-size: 17px;
+  }
+
+  .button--large {
+    font-size: 15px;
+    padding: 15px 20px 15px 20px !important;
+    margin-top: 0 !important;
+  }
+
 }
