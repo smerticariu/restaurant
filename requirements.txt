@@ -12,4 +12,4 @@ pickleshare==0.7.4
 ptyprocess==0.5.2
 simplegeneric==0.8.1
 six==1.11.0
-traitlets==4.2.2
+traitlets==4.3.2
